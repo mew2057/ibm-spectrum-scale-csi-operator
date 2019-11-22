@@ -69,6 +69,9 @@
     namespace: "{{namespace}}"
     definition: "{{ lookup('template', item.name) | from_yaml }}"
   loop:
+    - name: "role-attacher.yaml.j2"
+    - name: "role-plugin.yaml.j2"
+    - name: "role-provisioner.yaml.j2"
     - name: "spectrum_scale.yaml.j2"
     - name: "csi-plugin-attacher.yaml.j2"
     - name: "csi-plugin-provisioner.yaml.j2"

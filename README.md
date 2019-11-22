@@ -45,7 +45,7 @@ To build the image the user must navigate to the operator directory (This direct
 ``` bash
 # IBM_DIR is defined in the previous step
 export OPERATOR_DIR="$IBM_DIR/ibm-spectrum-scale-csi-operator"
-cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
+cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-driver-bundle/operators/ibm-spectrum-scale-csi-operator
 
 export GO111MODULE="on"
 operator-sdk build csi-scale-operator
@@ -92,7 +92,7 @@ hacks/change_deploy_image.py -i quay.io/<your-user>/ibm-spectrum-scale-csi-opera
 If you've built the image as outlined above and tagged it, you can easily run the following to deploy the operator manually:
 
 ``` bash
-cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
+cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-driver-bundle/operators/ibm-spectrum-scale-csi-operator
 
 kubectl apply -f deploy/namespace.yaml
 kubectl apply -f deploy/service_account.yaml
@@ -113,7 +113,7 @@ At this point the operator is running and ready for use!
 The following will subscribe the [quay.io](quay.io) version of the operator assuming OLM is installed.
 
 ``` bash
-cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator
+cd ${OPERATOR_DIR}/stable/ibm-spectrum-scale-csi-driver-bundle/operators/ibm-spectrum-scale-csi-operator
 
 kubectl apply -f deploy/olm-scripts/operator-source.yaml
 ```
@@ -132,7 +132,7 @@ Before starting the plugin, add any secrets to the appropriate namespace.  The S
 kubectl apply -f secrets.yaml -n ibm-spectrum-scale-csi-driver
 ```
 
-A sample of the file is provided [examples/spectrum_scale.yaml](stable/ibm-spectrum-scale-csi-operator-bundle/operators/ibm-spectrum-scale-csi-operator/example/spectrum_scale.yaml). 
+A sample of the file is provided [examples/spectrum_scale.yaml](stable/ibm-spectrum-scale-csi-driver-bundle/operators/ibm-spectrum-scale-csi-operator/example/spectrum_scale.yaml). 
 
 Modify this file to match the properties in your environment, then:
 
